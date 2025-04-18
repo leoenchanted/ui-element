@@ -1,0 +1,21 @@
+body {
+    font-family: var(--ui-font-family);
+    font-weight: 400;
+    font-size: var(--ui-font-size-base);
+    color: var(--ui-text-color-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
+}
+
+a {
+    color:var(--ui-text-color-primary);
+    text-decoration: none;
+    &:hover,
+    &:focus {
+        color: var(--ui-color-primary-light-3);
+    }
+    &:active {
+        color: var(--ui-color-primary-dark-2);
+    }
+}

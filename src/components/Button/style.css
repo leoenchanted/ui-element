@@ -1,0 +1,120 @@
+.ui-button {
+    --ui-button-font-weight: var(--ui-font-weight-primary);
+    --ui-button-border-color: var(--ui-border-color);
+    --ui-button-bg-color: var(--ui-fill-color-blank);
+    --ui-button-text-color: var(--ui-text-color-regular);
+    --ui-button-disabled-text-color: var(--ui-disabled-text-color);
+    --ui-button-disabled-bg-color: var(--ui-fill-color-blank);
+    --ui-button-disabled-border-color: var(--ui-border-color-light);
+    --ui-button-hover-border-color: var(--ui-color-primary-light-7);
+    --ui-button-hover-bg-color: var(--ui-color-primary-light-9);
+    --ui-button-hover-text-color: var(--ui-button-hover-text-color);
+    --ui-button-active-border-color: var(--ui-color-primary);
+    --ui-button-active-bg-color: var(--ui-button-hover-bg-color);
+    --ui-button-active-text-color: var(--ui-text-color-regular);
+    --ui-button-outline-color: var(--ui-color-primary-light-5);
+    --ui-button-active-color: var(--ui-text-color-primary);
+}
+.ui-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
+    height: 32px;
+    white-space: nowrap;
+    cursor: pointer;
+    color: var(--ui-button-text-color);
+    text-align: center;
+    box-sizing: border-box;
+    outline: none;
+    transition: .1s;
+    font-weight: var(--ui-button-font-weight);
+    user-select: none;
+    vertical-align: middle;
+    -webkit-appearance: none;
+    background-color: var(--ui-button-bg-color);
+    border: var(--ui-border);
+    border-color: var(--ui-button-border-color);
+    padding: 8px 15px;
+    font-size: var(--ui-font-size-base);
+    border-radius: var(--ui-border-radius-base);
+    & + & {
+        margin-left: 12px;
+    } 
+    &:hover,
+    &:focus {
+        color: var(--ui-button-hover-text-color);
+        background-color: var(--ui-button-hover-bg-color);
+        border-color: var(--ui-button-hover-border-color);
+        outline: none;
+    }
+    &:active {
+        color: var(--ui-button-active-text-color);
+        background-color: var(--ui-button-active-bg-color);
+        border-color: var(--ui-button-active-border-color);
+        outline: none;
+    }
+    &.is-plain {
+        --ui-button-hover-text-color: var(--ui-color-primary);
+        --ui-button-hover-border-color: var(--ui-color-primary);
+        --ui-button-hover-bg-color: var(--ui-fill-color-blank);
+    }
+    &.is-round {
+        border-radius: var(--ui-border-radius-round);
+    }
+    &.is-circle {
+        border-radius: 50%;
+        padding: 8px;
+    }
+    &.is-disabled,&.is-disabled:hover,&.is-disabled:focus,
+    &[disabled],&[disabled]:hover,[disabled]:focus {
+        color: var(--ui-button-disabled-text-color);
+        cursor: not-allowed;
+        background-image: none;
+        background-color: var(--ui-button-disabled-bg-color);
+        border-color: var(--ui-button-disabled-border-color);
+    }
+    [class*=ui-icon] + span {
+        margin-left: 6px;
+    }
+    } 
+@each $val in primary,success,warning,danger,info {
+    .ui-button--$(val) {
+       --ui-button-text-color: var(--ui-color-white);
+       --ui-button-bg-color: var(--ui-color-$(val));
+       --ui-button-border-color: var(--ui-color-$(val));
+       --ui-button-outline-color: var(--ui-color-$(val)-light-5);
+       --ui-button-active-color: var(--ui-color-$(val)-dark-2);
+       --ui-button-hover-text-color: var(--ui-color-white);
+       --ui-button-hover-border-color: var(--ui-color-$(val)-light-3);
+       --ui-button-hover-bg-color: var(--ui-color-$(val)-light-3);
+       --ui-button-active-border-color: var(--ui-color-$(val)-dark-2);
+       --ui-button-active-bg-color: var(--ui-color-$(val)-dark-2);
+       --ui-button-disabled-text-color: var(--ui-color-white);
+       --ui-button-disabled-border-color: var(--ui-color-$(val)-light-5);
+       --ui-button-disabled-bg-color: var(--ui-color-$(val)-light-5);
+    }
+    .ui-button--$(val).is-plain {
+        --ui-button-text-color: var(--ui-color-$(val));
+       --ui-button-bg-color: var(--ui-color-$(val)-light-9);
+       --ui-button-border-color: var(--ui-color-$(val)-light-5);
+       --ui-button-hover-text-color: var(--ui-color-white);
+       --ui-button-hover-border-color: var(--ui-color-$(val));
+       --ui-button-hover-bg-color: var(--ui-color-$(val));
+       --ui-button-active-text-color: var(--ui-color-white);
+   }
+}
+.ui-button--large {
+    --ui-button-size:40px;
+    height: var(--ui-button-size);
+    padding: 12px 19px;
+    font-size: var(--ui-font-size-base);
+    border-radius: var(--ui-border-radius-base);
+}
+.ui-button--small {
+    --ui-button-size:24px;
+    height: var(--ui-button-size);
+    padding: 5px 11px;
+    font-size: 12px;
+    border-radius: calc(var(--ui-border-radius-base) - 1px); 
+}

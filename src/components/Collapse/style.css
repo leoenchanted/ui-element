@@ -1,0 +1,57 @@
+.ui-collapse {
+    --ui-collapse-border-color: var(--ui-border-color-light);
+    --ui-collapse-header-height:48px;
+    --ui-collapse-header-bg-color:var(--ui-fill-color-blank);
+    --ui-collapse-header-text-color:var(--ui-text-color-primary);
+    --ui-collapse-header-font-size:13px;
+    --ui-collapse-content-bg-color:var(--ui-fill-color-blank);
+    --ui-collapse-content-font-size:13px;
+    --ui-collapse-content-text-color:var(--ui-text-color-primary);
+    --ui-collapse-disabled-text-color:var(--ui-disabled-text-color);
+    --ui-collapse-disabled-border-color:var(--ui-border-color-lighter);
+    border-top: 1px solid var(--ui-collapse-border-color);
+    border-bottom: 1px solid var(--ui-collapse-border-color);
+}
+.ui-collapse-item__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--ui-collapse-header-height);
+    line-height: var(--ui-collapse-header-height);
+    background-color: var(--ui-collapse-header-bg-color);
+    color: var(--ui-collapse-header-font-size);
+    cursor: pointer;
+    font-size: var(--ui-collapse-header-font-size);
+    font-weight: 500;
+    transition: border-bottom-color var(--ui-transition-duration);
+    outline: none;
+    border-bottom: 1px solid var(--ui-collapse-border-color);
+    &.is-disabled {
+        color: var(--ui-collapse-disabled-text-color);
+        cursor: not-allowed;
+        background-image: none;
+    }
+    &.is-active {
+        border-bottom-color: transparent ;
+        .header-angle {
+            transform: rotate(90deg);
+        }
+    }
+    .header-angle {
+        transition: transform var(--ui-transition-duration);
+    }
+}
+.ui-collapse-item__content {
+    will-change: height;
+    background-color: var(--ui-collapse-content-bg-color);
+    overflow: hidden;
+    box-sizing: border-box;
+    font-size: var(--ui-collapse-content-font-size);
+    color: var(--ui-collapse-content-text-color);
+    border-bottom: 1px solid var(--ui-collapse-border-color);
+    padding-bottom: 25px;
+}
+
+.slide-enter-active, .slide-leave-active{
+    transition: height var(--ui-transition-duration);
+}

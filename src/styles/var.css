@@ -1,0 +1,75 @@
+:root {
+    --ui-color-white:#ffffff;
+    --ui-color-black:#000000;
+
+    --colors: (
+        primary: #409eff,
+        success: #67c23a,
+        warning: #e6a23c,
+        danger: #f56c6c,
+        info: #909399,
+    );
+
+    @each $val, $color in var(--colors) {
+           --ui-color-$(val): $(color);
+           @for $i from 3 to 9 by 2 {
+            --ui-color-$(val)-light-$(i): mix(#fff, $(color), .$(i));
+        }
+        --ui-color-$(val)-light-8:mix(#fff, $(color),.8);
+        --ui-color-$(val)-dark-2:mix(#000, $(color),.2);
+    }
+    
+
+    --ui-bg-color:#ffffff;
+    --ui-bg-color-page:#f2f3f5;
+    --ui-bg-color-overlay:#ffffff;
+    --ui-text-color-primary:#212529;
+    --ui-text-color-secondary:#6c757d;
+    --ui-text-color-disabled:#adb5bd;
+    --ui-text-color-placeholder:#a8abb2;
+    --ui-border-color:#dee2e6;
+    --ui-border-color-light:#e9ecef;
+    --ui-border-color-lighter:#f1f3f5;
+    --ui-border-color-extra-light:#f8f9fa; 
+    --ui-border-color-dark:#ced4da;
+    --ui-border-color-darker:#adb5bd;
+    --ui-fill-color:#f0f2f5;
+    --ui-fill-color-light:#f8f9fa;
+    --ui-fill-color-lighter:#fbfcfd;
+    --ui-fill-color-extra-light:#fefefe;
+    --ui-fill-color-dark:#e9ecef;
+    --ui-fill-color-blank:#ffffff;
+
+
+    /* border */
+    --ui-border-width:1px;
+    --ui-border-style:solid;
+    --ui-border-color-hover:var(--ui-text-color-disabled);
+    --ui-border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
+    --ui-border-radius-base:4px;
+    --ui-border-radius-small:2px;
+    --ui-border-radius-round:20px;
+    --ui-border-radius-circle:100%;
+
+    /* font */
+    --ui-font-size-extra-large:20px;
+    --ui-font-size-large:18px;
+    --ui-font-size-medium:16px;
+    --ui-font-size-small:14px;
+    --ui-font-size-extra-small:12px;
+    --ui-font-weight-primary:500;
+    --ui-font-weight-bold:700;
+    --ui-font-weight-normal:400;
+    --ui-font-weight-light:300;
+    --ui-font-family:"Poppins Semibold","Helvetica Neue",Helvetica,"PingFang SC",Arial,sans-serif;
+
+    /* disabled */
+    --ui-disabled-bg-color:var(--ui-fill-color-light);
+    --ui-disabled-text-color:var(--ui-text-color-placeholder);
+    --ui-disabled-border-color:var(--ui-border-color-light);
+
+    /* animation */
+    --ui-transition-duration: .3s;
+    --ui-transition-duration-fast:.2s;
+}
+
